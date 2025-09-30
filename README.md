@@ -1,14 +1,23 @@
 # Metr4202-Team21
-For waypoint_commander
-Navigate to your workspace src folder:
-cd ~/metr4202_ws/src
 
-Clone the repository (using SSH is recommended):
-git clone git@github.com:lsy20030419lsy/Metr4202-Team21.git
+DOWNLOAD WAYPOINT_COMMANDER FOLDER
 
-Go back to your workspace root and build:
-cd ~/metr4202_ws
-colcon build
-source install/setup.bash
+cd ~/[ENTER YOUR WORKSPACE NAME HERE]/src
+git init waypoint_commander
+cd waypoint_commander
+git remote add origin https://github.com/lsy20030419lsy/Metr4202-Team21.git
+git config core.sparseCheckout true
+echo "waypoint_commander/" >> .git/info/sparse-checkout
+git pull origin main
 
-Hope everyone can work in this way!!!
+UPDATE WAYPOINT_COMMANDER FOLDER
+
+cd ~/[ENTER YOUR WORKSPACE NAME HERE]/src/waypoint_commander
+git pull origin main
+
+REBUILD AND SOURCE AFTER DOWNLOAD
+cd ~/[ENTER YOUR WORKSPACE NAME HERE]
+colcon build     
+source install/setup.bash  
+
+
