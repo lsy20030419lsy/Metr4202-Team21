@@ -5,62 +5,66 @@ from nav2_msgs.msg import BehaviorTreeLog
 from geometry_msgs.msg import PoseStamped
 from nav_msgs.msg import Odometry
 import math
-import time
+
 
 class FrontierDetector(Node):
     def __init__(self):
         super().__init__('frontier_detector')
 
-        # Subscribe to global costmap to detect frontiers
-        self.subscription = self.create_subscription(
+        # Subscribe to the global costmap — used for finding new frontiers.
+        self.costmap_sub = self.create_subscription(
             OccupancyGrid,
             '/global_costmap/costmap',
             self.costmap_callback,
             10)
-        
-        # Subscribe to the state of the robot
-        self.subscription = self.create_subscription(BehaviorTreeLog, '/behavior_tree_log', self.bt_log_callback, 10)
 
-        # Subscribe to odometry
-        self.odom_subscriber = self.create_subscription(Odometry, '/odom', self.odom_callback, 10)
+        # Subscribe to behavior tree logs (to check robot’s state like idle or running).
+        self.bt_sub = self.create_subscription(
+            BehaviorTreeLog,
+            '/behavior_tree_log',
+            self.bt_log_callback,
+            10)
 
+        # Subscribe to odometry for robot’s position updates.
+        self.odom_sub = self.create_subscription(
+            Odometry,
+            '/odom',
+            self.odom_callback,
+            10)
 
-        # Publish waypoint
-        self.publisher = self.create_publisher(PoseStamped, 'goal_pose', 10)  # Publisher for the waypoint
-       
-        # Placeholder for robot's current position
+        # Publisher that sends next navigation goal.
+        self.publisher = self.create_publisher(PoseStamped, 'goal_pose', 10)
+
+        # Store current position of the robot.
         self.robot_x = 0.0
         self.robot_y = 0.0
 
-        # Variable to detect first callback for algorithm purposes
-        self.callback_first = 1
+        # Used to check if this is the first run.
+        self.callback_first = True
 
-        # Status of robot
+        # Robot status flags.
         self.is_idle = True
-        
-        self.idle_first = False
+        self.reached_first_goal = False
 
-        # Initialise array of visited points to prioritise unexplored regions
+        # Keep current and visited waypoints.
+        self.current_waypoint = None
         self.visited_points = []
-
-        # Prevent unused variable warning
-        self.subscription
 
     def odom_callback(self, msg):
         """
-        Callback for the odometry subscriber.
-        Updates the robot's current position (x, y) and orientation.
+        Called whenever new odometry data arrives.
+        Updates the robot’s current x and y position based on its movement.
         """
         self.robot_x = msg.pose.pose.position.x
         self.robot_y = msg.pose.pose.position.y
 
     def costmap_callback(self, msg):
         """
-        Callback for the global costmap subscriber.
-        Updates the next waypoint based on the frontiers detected.
+        Runs when the global costmap updates.
+        Checks the map for new frontiers and chooses the next spot to explore.
         """
-        
-        # Extract the costmap data
+
+        # Extract costmap information
         width = msg.info.width
         height = msg.info.height
         resolution = msg.info.resolution
@@ -68,147 +72,192 @@ class FrontierDetector(Node):
         origin_y = msg.info.origin.position.y
         data = msg.data
 
-        # Call function to find frontiers
-        frontier_grid, frontiers = self.find_frontiers(data, width, height)
+        # Detect all potential frontiers on the map
+        frontier_grid, frontiers = self.detect_frontiers(data, width, height)
 
-        #First, go to the farthest point and wait until it reaches the point (IDLE state)
-        if frontiers and self.is_idle and self.callback_first:
-            self.is_idle = False
-            print("Frontier detected")
-            farthest_frontier = self.find_farthest_frontier(frontiers, origin_x, origin_y, resolution)
-            self.publish_waypoint(farthest_frontier, origin_x, origin_y, resolution)
-            self.current_waypoint = farthest_frontier
-            self.callback_first = 0
-        
-        #Then, go follow the closest frontier without waiting for IDLE state
-        elif frontiers and not self.callback_first and self.idle_first:
-            closest_frontier = self.find_closest_frontier(frontiers, origin_x, origin_y, resolution)
-            self.publish_waypoint(closest_frontier, origin_x, origin_y, resolution)
-
+        if frontiers:
+            target = None
+            if self.callback_first and self.is_idle:  # first run (initial exploration step)
+                target = self.locate_farthest_frontier(frontiers, origin_x, origin_y, resolution)
+                self.callback_first = False
+                self.is_idle = False
+                print("First farthest frontier detected")
+            elif self.reached_first_goal:  # after reaching the first goal
+                target = self.locate_nearest_frontier(frontiers, origin_x, origin_y, resolution)
+                print("closest frontier detected")
+            self.send_waypoint(target, origin_x, origin_y, resolution)
+            self.current_waypoint = target
+            if target is None:
+                return
 
     def bt_log_callback(self, msg):
         """
-        Callback for the behavior tree log (robot's status) subscriber.
-        Updates the state of the robot (RUNNING, IDLE, FAILED).
+        This function listens to updates from the Behavior Tree log.
+        It basically tells us what the robot is doing — whether it’s idle, moving, or trying to recover.
         """
-        
+
         for event in msg.event_log:
-            if event.node_name == 'NavigateRecovery' and event.current_status == 'IDLE':
-                self.is_idle = True
-                self.idle_first = True
-            # Checks for failure on reaching a waypoint
             if event.node_name == 'NavigateRecovery':
-                self.get_logger().info(f"Status: {event.current_status}")
+                # If the robot just finished a task and became idle
+                if event.current_status == 'IDLE':
+                    self.is_idle = True
+                    # Once it's not the first time anymore, mark that the first goal was reached
+                    if not self.callback_first:
+                        self.reached_first_goal = True
+                # If the robot is currently on the move or executing navigation
+                elif event.current_status in ('RUNNING', 'ACTIVE'):
+                    self.is_idle = False
 
-    def find_frontiers(self, data, width, height):
-        """
-        Find frontiers in the costmap.
-        Frontiers are traversable space (value 0 to 70) adjacent to unknown space (value -1).
-        """
-        frontier_grid = [['  ' for _ in range(width)] for _ in range(height)]  # Create an empty grid
-        frontiers = []  # List to store coordinates of frontier cells
-        
-        for y in range(height):
-            for x in range(width):
-                idx = x + y * width
-                if data[idx] >= 0 and data[idx] < 70:  # Costmap value threshold
-                    if self.is_frontier(x, y, data, width, height):
-                        frontier_grid[y][x] = ' +'
-                        frontiers.append((x, y))  # Store the frontier coordinates
+            # Print out the current status of the navigation node for debugging
+            if event.node_name == 'NavigateRecovery':
+                self.get_logger().info("NavigateRecovery status: {}".format(event.current_status))
 
-        return frontier_grid, frontiers
+    def detect_frontiers(self, data, width, height):
+        """
+        Scans through the costmap to find frontiers.
+        A frontier is basically free space (0–70) that's right next to an unexplored area (-1).
+        """
+        frontier_map = [["  "] * width for _ in range(height)]  # Make a blank grid for marking frontiers
+        candidates = []  # Store the (x, y) positions of detected frontier cells
 
-    def is_frontier(self, x, y, data, width, height):
+        # Go through every single cell in the costmap
+        for idx, value in enumerate(data):
+            if 0 <= value < 70:  # If the cell is free to move through
+                x, y = idx % width, idx // width  # Convert the 1D index to 2D coordinates
+                # Check if any of the nearby cells are still unknown (-1)
+                if self._is_frontier_cell(x, y, data, width, height):
+                    frontier_map[y][x] = " +"  # Mark this spot as a frontier
+                    candidates.append((x, y))  # Save the cell’s coordinates as a frontier point
+
+        return frontier_map, candidates  # Return both the map (for display) and the list of frontiers
+
+    def _is_frontier_cell(self, x, y, data, width, height):
         """
-        Check if a given free space cell is adjacent to unknown space (-1).
+        Checks if the given cell is right next to any unknown area (-1).
+        Basically, we just look around in four directions (up, down, left, right)
+        to see if there’s unexplored space beside it.
         """
-        neighbors = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-        
-        for dx, dy in neighbors:
-            nx = x + dx
-            ny = y + dy
-            if 0 <= nx < width and 0 <= ny < height:
-                idx = nx + ny * width
-                if data[idx] == -1:  # Unknown space
-                    return True
-        return False
+        # Look up
+        if y > 0 and data[(y - 1) * width + x] == -1:
+            return True
+        # Look down
+        if y < height - 1 and data[(y + 1) * width + x] == -1:
+            return True
+        # Look left
+        if x > 0 and data[y * width + (x - 1)] == -1:
+            return True
+        # Look right
+        if x < width - 1 and data[y * width + (x + 1)] == -1:
+            return True
+
+        return False  # Not a frontier if no unknown neighbor is found
 
     def print_frontier_grid(self, frontier_grid, width, height):
         """
-        Print the frontier grid to the terminal, with '+' for frontiers and ' ' for non-frontiers.
+        Displays the detected frontiers in a simple text-based map.
+        Each '+' symbol shows a frontier cell, while empty spaces mean no frontier.
+        This is mainly for debugging or quick visualization in the terminal.
         """
-        print("\nFrontier Grid:\n")
-        for y in range(height):
-            row = ''.join(frontier_grid[y])
-            print(row)
+        # Print a title for the map display
+        print("\n=== Frontier Map ===")
 
-    def find_closest_frontier(self, frontiers, origin_x, origin_y, resolution):
+        # Print X-axis numbers (they just repeat 0–9 to match map width)
+        print("   " + "".join([f"{x % 10}" for x in range(width)]))
+
+        # Go through each row from top to bottom so it looks like a real map view
+        for y in reversed(range(height)):  # reverse to show the top of the map first
+            row = "".join(frontier_grid[y])  # Turn each row (list) into one string for printing
+            # Print row index (2 digits), row content, and vertical borders for neatness
+            print(f"{y:02d}|{row}|")
+
+        # Draw the bottom border line under the map
+        print("=" * (width + 5))
+
+    def locate_nearest_frontier(self, frontier_cells, map_origin_x, map_origin_y, map_resolution):
         """
-        Find the closest frontier to the robot's current position.
+        Finds the closest frontier point to the robot's current position.
+        Basically, it checks all the detected frontiers and picks the one
+        with the smallest distance that hasn’t been visited yet.
         """
-        min_distance = math.inf
-        closest_frontier = None
+        closest_point = None
+        shortest_dist = float('inf')  # start with a really large number
 
-        for x, y in frontiers:
-            # Convert grid coordinates to world coordinates
-            frontier_x = origin_x + x * resolution
-            frontier_y = origin_y + y * resolution
+        # Loop through every frontier candidate
+        for cell_x, cell_y in frontier_cells:
+            # Convert grid coordinates to actual world coordinates
+            world_x = map_origin_x + cell_x * map_resolution
+            world_y = map_origin_y + cell_y * map_resolution
 
-            # Calculate the Euclidean distance between the robot and the frontier
-            distance = math.sqrt((frontier_x - self.robot_x) ** 2 + (frontier_y - self.robot_y) ** 2)
+            # Calculate straight-line (Euclidean) distance from the robot
+            dx = world_x - self.robot_x
+            dy = world_y - self.robot_y
+            dist = (dx ** 2 + dy ** 2) ** 0.5
 
-            if distance < min_distance and (frontier_x, frontier_y) not in self.visited_points:
-                min_distance = distance
-                closest_frontier = (frontier_x, frontier_y)
+            # Check if this frontier is closer and hasn’t been visited yet
+            if (world_x, world_y) not in self.visited_points and dist < shortest_dist:
+                shortest_dist = dist
+                closest_point = (world_x, world_y)
 
-        return closest_frontier
-    
-    def find_farthest_frontier(self, frontiers, origin_x, origin_y, resolution):
+        # Return the closest frontier (or None if nothing found)
+        return closest_point
+
+    def locate_farthest_frontier(self, frontier_cells, map_origin_x, map_origin_y, map_resolution):
         """
-        Find the farthest frontier to the robot's current position.
+        Finds the frontier point that’s the farthest away from the robot.
+        Used mainly at the start so the robot heads toward the biggest unexplored area first.
         """
-        max_distance = 0
-        farthest_frontier = None
+        farthest_point = None
+        longest_dist = -1.0  # start low so the first valid point replaces it
 
-        for x, y in frontiers:
-            # Convert grid coordinates to world coordinates
-            frontier_x = origin_x + x * resolution
-            frontier_y = origin_y + y * resolution
+        # Go through all detected frontier cells
+        for cell_x, cell_y in frontier_cells:
+            # Convert from grid cell coordinates to actual world coordinates
+            world_x = map_origin_x + cell_x * map_resolution
+            world_y = map_origin_y + cell_y * map_resolution
 
-            # Calculate the Euclidean distance between the robot and the frontier
-            distance = math.sqrt((frontier_x - self.robot_x) ** 2 + (frontier_y - self.robot_y) ** 2)
+            # Calculate the straight-line (Euclidean) distance
+            dx = world_x - self.robot_x
+            dy = world_y - self.robot_y
+            dist = (dx ** 2 + dy ** 2) ** 0.5
 
-            if distance > max_distance:
-                max_distance = distance
-                farthest_frontier = (frontier_x, frontier_y)
+            # If this one’s farther than what we’ve seen so far, store it
+            if dist > longest_dist:
+                longest_dist = dist
+                farthest_point = (world_x, world_y)
 
-        return farthest_frontier
+        # Return the farthest frontier found (or None if nothing’s valid)
+        return farthest_point
 
-    def publish_waypoint(self, frontier, origin_x, origin_y, resolution):
+    def send_waypoint(self, target_point, map_origin_x, map_origin_y, map_resolution):
         """
-        Publish the closest frontier as a waypoint using a PoseStamped message.
+        Publishes the chosen frontier point as a navigation goal (PoseStamped message).
+        Basically, this tells the robot where to go next.
         """
-
-        if frontier in self.visited_points:
-            self.get_logger().info(f"Point {frontier} already visited, skipping.")
+        # Don’t resend a waypoint that’s already been visited
+        if target_point in self.visited_points:
+            self.get_logger().info(f"Skipping already visited location: {target_point}")
             return
-        
-        if frontier:
-            waypoint = PoseStamped()
-            waypoint.header.frame_id = 'map'
-            waypoint.header.stamp = self.get_clock().now().to_msg()
-            
-            
-            waypoint.pose.position.x = frontier[0]
-            waypoint.pose.position.y = frontier[1]
-            waypoint.pose.position.z = 0.0
-            waypoint.pose.orientation.w = 1.0  # Neutral orientation
 
-            # Log and publish the waypoint
-            self.get_logger().info(f"Publishing waypoint to frontier at ({frontier[0]}, {frontier[1]})")
-            self.publisher.publish(waypoint)
+        # Skip if there’s no valid target to move toward
+        if target_point is None:
+            self.get_logger().warn("No valid frontier point to send.")
+            return
 
-            self.visited_points.append(frontier)
+        # Create and fill out the PoseStamped message for the new waypoint
+        goal_msg = PoseStamped()
+        goal_msg.header.frame_id = "map"  # everything is in the map frame
+        goal_msg.header.stamp = self.get_clock().now().to_msg()  # timestamp for ROS
+
+        goal_msg.pose.position.x = target_point[0]
+        goal_msg.pose.position.y = target_point[1]
+        goal_msg.pose.position.z = 0.0
+        goal_msg.pose.orientation.w = 1.0  # simple default orientation (no rotation)
+
+        # Send out the waypoint and log it
+        self.publisher.publish(goal_msg)
+        self.visited_points.append(target_point)
+        self.get_logger().info(f"New waypoint sent → ({target_point[0]:.2f}, {target_point[1]:.2f})")
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -216,6 +265,7 @@ def main(args=None):
     rclpy.spin(frontier_detector)
     frontier_detector.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
