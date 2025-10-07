@@ -32,7 +32,6 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 2.OPEN SLAM IN A NEW TERMINAL
 ros2 launch slam_toolbox online_async_launch.py
 
-
 3.OPEN RVIZ IN A NEW TERMINAL
 export TURTLEBOT3_MODEL=waffle_pi
 ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True
@@ -40,6 +39,7 @@ map:=/path/to/turtlebot3_world_map.yaml
 
 4. RUN THE PROGRAM
 ros2 run waypoint_commander waypoint_cycler
+
 
 
 
