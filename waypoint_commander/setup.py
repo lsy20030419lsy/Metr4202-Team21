@@ -20,6 +20,6 @@ setup(
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['waypoint_cycler = waypoint_commander.waypoint_cycler:main',],
+        'console_scripts': ['waypoint_cycler = waypoint_commander.waypoint_cycler:main','aruco_detector = waypoint_commander.aruco_detector_node:main','real_world_sensor = waypoint_commander.real_world_sensor_node:main'],
     },
 )
