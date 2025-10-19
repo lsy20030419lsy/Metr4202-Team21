@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing waypoint_commander.egg-info/PKG-INFO
+writing dependency_links to waypoint_commander.egg-info/dependency_links.txt
+writing entry points to waypoint_commander.egg-info/entry_points.txt
+writing requirements to waypoint_commander.egg-info/requires.txt
+writing top-level names to waypoint_commander.egg-info/top_level.txt
+reading manifest file 'waypoint_commander.egg-info/SOURCES.txt'
+writing manifest file 'waypoint_commander.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint-commander.egg-link (link to .)
+Installing waypoint_cycler script to /home/will/metr4202_ws/src/install/waypoint_commander/lib/waypoint_commander
+
+Installed /home/will/metr4202_ws/src/build/waypoint_commander
+running symlink_data
+symbolically linking /home/will/metr4202_ws/src/build/waypoint_commander/resource/waypoint_commander -> /home/will/metr4202_ws/src/install/waypoint_commander/share/ament_index/resource_index/packages
+symbolically linking /home/will/metr4202_ws/src/build/waypoint_commander/package.xml -> /home/will/metr4202_ws/src/install/waypoint_commander/share/waypoint_commander

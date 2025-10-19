@@ -1,0 +1,3 @@
+[console_scripts]
+waypoint_cycler = waypoint_commander.waypoint_cycler:main
+

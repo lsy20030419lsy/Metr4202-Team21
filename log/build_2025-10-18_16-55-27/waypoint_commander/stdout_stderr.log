@@ -1,0 +1,35 @@
+running egg_info
+creating ../build/waypoint_commander/waypoint_commander.egg-info
+writing ../build/waypoint_commander/waypoint_commander.egg-info/PKG-INFO
+writing dependency_links to ../build/waypoint_commander/waypoint_commander.egg-info/dependency_links.txt
+writing entry points to ../build/waypoint_commander/waypoint_commander.egg-info/entry_points.txt
+writing requirements to ../build/waypoint_commander/waypoint_commander.egg-info/requires.txt
+writing top-level names to ../build/waypoint_commander/waypoint_commander.egg-info/top_level.txt
+writing manifest file '../build/waypoint_commander/waypoint_commander.egg-info/SOURCES.txt'
+reading manifest file '../build/waypoint_commander/waypoint_commander.egg-info/SOURCES.txt'
+writing manifest file '../build/waypoint_commander/waypoint_commander.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/will/metr4202_ws/src/build/waypoint_commander/build
+creating /home/will/metr4202_ws/src/build/waypoint_commander/build/lib
+creating /home/will/metr4202_ws/src/build/waypoint_commander/build/lib/waypoint_commander
+copying waypoint_commander/__init__.py -> /home/will/metr4202_ws/src/build/waypoint_commander/build/lib/waypoint_commander
+copying waypoint_commander/waypoint_cycler.py -> /home/will/metr4202_ws/src/build/waypoint_commander/build/lib/waypoint_commander
+running install
+running install_lib
+creating /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint_commander
+copying /home/will/metr4202_ws/src/build/waypoint_commander/build/lib/waypoint_commander/__init__.py -> /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint_commander
+copying /home/will/metr4202_ws/src/build/waypoint_commander/build/lib/waypoint_commander/waypoint_cycler.py -> /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint_commander
+byte-compiling /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint_commander/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint_commander/waypoint_cycler.py to waypoint_cycler.cpython-310.pyc
+running install_data
+creating /home/will/metr4202_ws/src/install/waypoint_commander/share/ament_index
+creating /home/will/metr4202_ws/src/install/waypoint_commander/share/ament_index/resource_index
+creating /home/will/metr4202_ws/src/install/waypoint_commander/share/ament_index/resource_index/packages
+copying resource/waypoint_commander -> /home/will/metr4202_ws/src/install/waypoint_commander/share/ament_index/resource_index/packages
+copying package.xml -> /home/will/metr4202_ws/src/install/waypoint_commander/share/waypoint_commander
+running install_egg_info
+Copying ../build/waypoint_commander/waypoint_commander.egg-info to /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint_commander-0.0.0-py3.10.egg-info
+running install_scripts
+Installing waypoint_cycler script to /home/will/metr4202_ws/src/install/waypoint_commander/lib/waypoint_commander
+writing list of installed files to '/home/will/metr4202_ws/src/build/waypoint_commander/install.log'

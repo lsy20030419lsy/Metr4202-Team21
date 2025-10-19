@@ -1,0 +1,7 @@
+/home/will/metr4202_ws/src/build/turtlebot3_msgs/rosidl_adapter/turtlebot3_msgs:msg/SensorState.idl
+/home/will/metr4202_ws/src/build/turtlebot3_msgs/rosidl_adapter/turtlebot3_msgs:msg/Sound.idl
+/home/will/metr4202_ws/src/build/turtlebot3_msgs/rosidl_adapter/turtlebot3_msgs:msg/VersionInfo.idl
+/home/will/metr4202_ws/src/build/turtlebot3_msgs/rosidl_adapter/turtlebot3_msgs:srv/Sound.idl
+/home/will/metr4202_ws/src/build/turtlebot3_msgs/rosidl_adapter/turtlebot3_msgs:srv/Dqn.idl
+/home/will/metr4202_ws/src/build/turtlebot3_msgs/rosidl_adapter/turtlebot3_msgs:srv/Goal.idl
+/home/will/metr4202_ws/src/build/turtlebot3_msgs/rosidl_adapter/turtlebot3_msgs:action/Patrol.idl

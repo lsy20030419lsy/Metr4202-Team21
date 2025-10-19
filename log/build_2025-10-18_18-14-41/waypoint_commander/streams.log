@@ -1,0 +1,17 @@
+[0.385s] Invoking command in '/home/will/metr4202_ws/src/build/waypoint_commander': PYTHONPATH=/home/will/metr4202_ws/src/build/waypoint_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/will/metr4202_ws/src/build/waypoint_commander/build --no-deps symlink_data
+[0.534s] running develop
+[0.619s] running egg_info
+[0.619s] writing waypoint_commander.egg-info/PKG-INFO
+[0.619s] writing dependency_links to waypoint_commander.egg-info/dependency_links.txt
+[0.619s] writing entry points to waypoint_commander.egg-info/entry_points.txt
+[0.619s] writing requirements to waypoint_commander.egg-info/requires.txt
+[0.620s] writing top-level names to waypoint_commander.egg-info/top_level.txt
+[0.620s] reading manifest file 'waypoint_commander.egg-info/SOURCES.txt'
+[0.621s] writing manifest file 'waypoint_commander.egg-info/SOURCES.txt'
+[0.622s] running build_ext
+[0.622s] Creating /home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages/waypoint-commander.egg-link (link to .)
+[0.622s] Installing waypoint_cycler script to /home/will/metr4202_ws/src/install/waypoint_commander/lib/waypoint_commander
+[0.623s] 
+[0.623s] Installed /home/will/metr4202_ws/src/build/waypoint_commander
+[0.623s] running symlink_data
+[0.641s] Invoked command in '/home/will/metr4202_ws/src/build/waypoint_commander' returned '0': PYTHONPATH=/home/will/metr4202_ws/src/build/waypoint_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/install/waypoint_commander/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/will/metr4202_ws/src/build/waypoint_commander/build --no-deps symlink_data

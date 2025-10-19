@@ -1,0 +1,26 @@
+[0.571s] Invoking command in '/home/will/metr4202_ws/src/turtlebot3/turtlebot3_example': AMENT_PREFIX_PATH=/home/will/metr4202_ws/src/install/turtlebot3_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/will/metr4202_ws/src/install/turtlebot3_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/will/metr4202_ws/src/install/turtlebot3_msgs/lib:/home/will/metr4202_ws/install/turtlebot3_msgs/lib:/home/will/metr4202_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/will/metr4202_ws/install/dynamixel_sdk/lib:/home/will/install/turtlebot3_msgs/lib:/home/will/install/dynamixel_sdk_custom_interfaces/lib:/home/will/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/will/metr4202_ws/src/build/turtlebot3_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/install/turtlebot3_example/lib/python3.10/site-packages:/home/will/metr4202_ws/src/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot3_example build --build-base /home/will/metr4202_ws/src/build/turtlebot3_example/build install --record /home/will/metr4202_ws/src/build/turtlebot3_example/install.log --single-version-externally-managed install_data
+[0.722s] running egg_info
+[0.723s] writing ../../build/turtlebot3_example/turtlebot3_example.egg-info/PKG-INFO
+[0.723s] writing dependency_links to ../../build/turtlebot3_example/turtlebot3_example.egg-info/dependency_links.txt
+[0.723s] writing entry points to ../../build/turtlebot3_example/turtlebot3_example.egg-info/entry_points.txt
+[0.723s] writing requirements to ../../build/turtlebot3_example/turtlebot3_example.egg-info/requires.txt
+[0.723s] writing top-level names to ../../build/turtlebot3_example/turtlebot3_example.egg-info/top_level.txt
+[0.725s] reading manifest file '../../build/turtlebot3_example/turtlebot3_example.egg-info/SOURCES.txt'
+[0.726s] writing manifest file '../../build/turtlebot3_example/turtlebot3_example.egg-info/SOURCES.txt'
+[0.726s] running build
+[0.726s] running build_py
+[0.728s] running install
+[0.729s] running install_lib
+[0.732s] running install_data
+[0.732s] running install_egg_info
+[0.734s] removing '/home/will/metr4202_ws/src/install/turtlebot3_example/lib/python3.10/site-packages/turtlebot3_example-2.3.3-py3.10.egg-info' (and everything under it)
+[0.734s] Copying ../../build/turtlebot3_example/turtlebot3_example.egg-info to /home/will/metr4202_ws/src/install/turtlebot3_example/lib/python3.10/site-packages/turtlebot3_example-2.3.3-py3.10.egg-info
+[0.735s] running install_scripts
+[0.748s] Installing turtlebot3_absolute_move script to /home/will/metr4202_ws/src/install/turtlebot3_example/lib/turtlebot3_example
+[0.749s] Installing turtlebot3_interactive_marker script to /home/will/metr4202_ws/src/install/turtlebot3_example/lib/turtlebot3_example
+[0.749s] Installing turtlebot3_obstacle_detection script to /home/will/metr4202_ws/src/install/turtlebot3_example/lib/turtlebot3_example
+[0.749s] Installing turtlebot3_patrol_client script to /home/will/metr4202_ws/src/install/turtlebot3_example/lib/turtlebot3_example
+[0.749s] Installing turtlebot3_patrol_server script to /home/will/metr4202_ws/src/install/turtlebot3_example/lib/turtlebot3_example
+[0.749s] Installing turtlebot3_relative_move script to /home/will/metr4202_ws/src/install/turtlebot3_example/lib/turtlebot3_example
+[0.749s] writing list of installed files to '/home/will/metr4202_ws/src/build/turtlebot3_example/install.log'
+[0.765s] Invoked command in '/home/will/metr4202_ws/src/turtlebot3/turtlebot3_example' returned '0': AMENT_PREFIX_PATH=/home/will/metr4202_ws/src/install/turtlebot3_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/will/metr4202_ws/src/install/turtlebot3_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/will/metr4202_ws/src/install/turtlebot3_msgs/lib:/home/will/metr4202_ws/install/turtlebot3_msgs/lib:/home/will/metr4202_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/will/metr4202_ws/install/dynamixel_sdk/lib:/home/will/install/turtlebot3_msgs/lib:/home/will/install/dynamixel_sdk_custom_interfaces/lib:/home/will/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/will/metr4202_ws/src/build/turtlebot3_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/install/turtlebot3_example/lib/python3.10/site-packages:/home/will/metr4202_ws/src/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot3_example build --build-base /home/will/metr4202_ws/src/build/turtlebot3_example/build install --record /home/will/metr4202_ws/src/build/turtlebot3_example/install.log --single-version-externally-managed install_data

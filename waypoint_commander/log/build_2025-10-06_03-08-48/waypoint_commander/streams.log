@@ -1,0 +1,24 @@
+[0.445s] Invoking command in '/home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander': PYTHONPATH=/home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander/build --no-deps symlink_data
+[0.590s] running develop
+[0.674s] running egg_info
+[0.674s] creating waypoint_commander.egg-info
+[0.674s] writing waypoint_commander.egg-info/PKG-INFO
+[0.675s] writing dependency_links to waypoint_commander.egg-info/dependency_links.txt
+[0.675s] writing entry points to waypoint_commander.egg-info/entry_points.txt
+[0.675s] writing requirements to waypoint_commander.egg-info/requires.txt
+[0.675s] writing top-level names to waypoint_commander.egg-info/top_level.txt
+[0.675s] writing manifest file 'waypoint_commander.egg-info/SOURCES.txt'
+[0.676s] reading manifest file 'waypoint_commander.egg-info/SOURCES.txt'
+[0.676s] writing manifest file 'waypoint_commander.egg-info/SOURCES.txt'
+[0.677s] running build_ext
+[0.677s] Creating /home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/lib/python3.10/site-packages/waypoint-commander.egg-link (link to .)
+[0.678s] Installing waypoint_cycler script to /home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/lib/waypoint_commander
+[0.678s] 
+[0.678s] Installed /home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander
+[0.678s] running symlink_data
+[0.678s] creating /home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/share/ament_index
+[0.678s] creating /home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/share/ament_index/resource_index
+[0.678s] creating /home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/share/ament_index/resource_index/packages
+[0.678s] symbolically linking /home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander/resource/waypoint_commander -> /home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/share/ament_index/resource_index/packages
+[0.678s] symbolically linking /home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander/package.xml -> /home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/share/waypoint_commander
+[0.694s] Invoked command in '/home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander' returned '0': PYTHONPATH=/home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/waypoint_commander/install/waypoint_commander/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/will/metr4202_ws/src/waypoint_commander/build/waypoint_commander/build --no-deps symlink_data
