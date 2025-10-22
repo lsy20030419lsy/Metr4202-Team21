@@ -40,7 +40,7 @@ ros2 launch slam_toolbox online_async_launch.py
 
 export TURTLEBOT3_MODEL=waffle_pi
 
-ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True
+ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True slam:=True
 map:=/path/to/turtlebot3_world_map.yaml
 
 4. RUN THE PROGRAM：
