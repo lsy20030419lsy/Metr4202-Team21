@@ -56,4 +56,45 @@ ros2 run aruco_detector aruco_detector
 
 
 
+🧩 方案一：从 GitHub 上只下载这三个文件夹（最简单）
+
+你可以使用 Git Sparse Checkout（稀疏检出）功能，
+只克隆仓库中指定的几个包。
+
+✅ 步骤：
+
+1️⃣ 在目标电脑上选择保存路径：
+
+mkdir -p ~/metr4202_ws/src
+cd ~/metr4202_ws/src
+
+
+2️⃣ 初始化仓库：
+
+git init
+git remote add origin https://github.com/lsy20030419lsy/Metr4202-Team21.git
+git config core.sparseCheckout true
+
+
+3️⃣ 指定只下载的包（写入要保留的路径）：
+
+echo "aruco_detector_team21/" >> .git/info/sparse-checkout
+echo "waypoint_commander_team21/" >> .git/info/sparse-checkout
+echo "my_world_launcher/" >> .git/info/sparse-checkout
+
+
+4️⃣ 拉取仓库：
+
+git pull origin main
+
+
+💡 现在你在 ~/metr4202_ws/src 下只会看到：
+
+aruco_detector_team21/
+waypoint_commander_team21/
+my_world_launcher/
+
+
+
+
 
