@@ -1,0 +1,216 @@
+[0.376s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.376s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x771dab83cb20>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x771dab83c670>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x771dab83c670>>, mixin_verb=('build',))
+[0.660s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.660s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.660s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.660s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.660s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.660s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.661s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/will/metr4202_ws/src/Metr4202-Team21'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extensions ['ignore', 'ignore_ament_install']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extension 'ignore'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extension 'ignore_ament_install'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extensions ['colcon_pkg']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extension 'colcon_pkg'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extensions ['colcon_meta']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extension 'colcon_meta'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extensions ['ros']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(aruco_detector_team21) by extension 'ros'
+[0.682s] DEBUG:colcon.colcon_core.package_identification:Package 'aruco_detector_team21' with type 'ros.ament_python' and name 'aruco_detector_team21'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extensions ['ignore', 'ignore_ament_install']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extension 'ignore'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extension 'ignore_ament_install'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extensions ['colcon_pkg']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extension 'colcon_pkg'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extensions ['colcon_meta']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extension 'colcon_meta'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extensions ['ros']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(my_world_launcher) by extension 'ros'
+[0.683s] DEBUG:colcon.colcon_core.package_identification:Package 'my_world_launcher' with type 'ros.ament_python' and name 'my_world_launcher'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extensions ['ignore', 'ignore_ament_install']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extension 'ignore'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extension 'ignore_ament_install'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extensions ['colcon_pkg']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extension 'colcon_pkg'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extensions ['colcon_meta']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extension 'colcon_meta'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extensions ['ros']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(waypoint_commander_team21) by extension 'ros'
+[0.684s] DEBUG:colcon.colcon_core.package_identification:Package 'waypoint_commander_team21' with type 'ros.ament_python' and name 'waypoint_commander_team21'
+[0.685s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.685s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.685s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.685s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.685s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.742s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.742s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.746s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 21 installed packages in /home/will/install
+[0.747s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 19 installed packages in /home/will/metr4202_ws/install
+[0.750s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 363 installed packages in /opt/ros/humble
+[0.751s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'cmake_args' from command line to 'None'
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'cmake_target' from command line to 'None'
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'cmake_clean_cache' from command line to 'False'
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'cmake_clean_first' from command line to 'False'
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'cmake_force_configure' from command line to 'False'
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'ament_cmake_args' from command line to 'None'
+[0.816s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'catkin_cmake_args' from command line to 'None'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'aruco_detector_team21' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.817s] DEBUG:colcon.colcon_core.verb:Building package 'aruco_detector_team21' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21', 'merge_install': False, 'path': '/home/will/metr4202_ws/src/Metr4202-Team21/aruco_detector_team21', 'symlink_install': False, 'test_result_base': None}
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'cmake_args' from command line to 'None'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'cmake_target' from command line to 'None'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'cmake_clean_cache' from command line to 'False'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'cmake_clean_first' from command line to 'False'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'cmake_force_configure' from command line to 'False'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'ament_cmake_args' from command line to 'None'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'catkin_cmake_args' from command line to 'None'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'my_world_launcher' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.817s] DEBUG:colcon.colcon_core.verb:Building package 'my_world_launcher' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/will/metr4202_ws/src/Metr4202-Team21/build/my_world_launcher', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher', 'merge_install': False, 'path': '/home/will/metr4202_ws/src/Metr4202-Team21/my_world_launcher', 'symlink_install': False, 'test_result_base': None}
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'cmake_args' from command line to 'None'
+[0.817s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'cmake_target' from command line to 'None'
+[0.818s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.818s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'cmake_clean_cache' from command line to 'False'
+[0.818s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'cmake_clean_first' from command line to 'False'
+[0.818s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'cmake_force_configure' from command line to 'False'
+[0.818s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'ament_cmake_args' from command line to 'None'
+[0.818s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'catkin_cmake_args' from command line to 'None'
+[0.818s] Level 5:colcon.colcon_core.verb:set package 'waypoint_commander_team21' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.818s] DEBUG:colcon.colcon_core.verb:Building package 'waypoint_commander_team21' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21', 'merge_install': False, 'path': '/home/will/metr4202_ws/src/Metr4202-Team21/waypoint_commander_team21', 'symlink_install': False, 'test_result_base': None}
+[0.818s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.820s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.820s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/will/metr4202_ws/src/Metr4202-Team21/aruco_detector_team21' with build type 'ament_python'
+[0.820s] Level 1:colcon.colcon_core.shell:create_environment_hook('aruco_detector_team21', 'ament_prefix_path')
+[0.827s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.828s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/hook/ament_prefix_path.ps1'
+[0.830s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/hook/ament_prefix_path.dsv'
+[0.831s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/hook/ament_prefix_path.sh'
+[0.833s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.833s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.845s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/will/metr4202_ws/src/Metr4202-Team21/my_world_launcher' with build type 'ament_python'
+[0.845s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_world_launcher', 'ament_prefix_path')
+[0.846s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/hook/ament_prefix_path.ps1'
+[0.850s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/hook/ament_prefix_path.dsv'
+[0.851s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/hook/ament_prefix_path.sh'
+[0.853s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.853s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.865s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/will/metr4202_ws/src/Metr4202-Team21/waypoint_commander_team21' with build type 'ament_python'
+[0.865s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_commander_team21', 'ament_prefix_path')
+[0.865s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/hook/ament_prefix_path.ps1'
+[0.867s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/hook/ament_prefix_path.dsv'
+[0.869s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/hook/ament_prefix_path.sh'
+[0.871s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.871s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.311s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/will/metr4202_ws/src/Metr4202-Team21/aruco_detector_team21'
+[1.311s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.311s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.731s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/will/metr4202_ws/src/Metr4202-Team21/my_world_launcher'
+[1.732s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.732s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.144s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/will/metr4202_ws/src/Metr4202-Team21/waypoint_commander_team21'
+[2.144s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.144s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.027s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/will/metr4202_ws/src/Metr4202-Team21/my_world_launcher': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/my_world_launcher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_world_launcher build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/my_world_launcher/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/my_world_launcher/install.log --single-version-externally-managed install_data
+[3.040s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/will/metr4202_ws/src/Metr4202-Team21/aruco_detector_team21': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/aruco_detector_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/install.log --single-version-externally-managed install_data
+[3.240s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/will/metr4202_ws/src/Metr4202-Team21/waypoint_commander_team21': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/waypoint_commander_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/install.log --single-version-externally-managed install_data
+[3.760s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/will/metr4202_ws/src/Metr4202-Team21/my_world_launcher' returned '0': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/my_world_launcher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_world_launcher build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/my_world_launcher/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/my_world_launcher/install.log --single-version-externally-managed install_data
+[3.767s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher' for CMake module files
+[3.769s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher' for CMake config files
+[3.775s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/lib'
+[3.778s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/bin'
+[3.778s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/lib/pkgconfig/my_world_launcher.pc'
+[3.778s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/lib/python3.10/site-packages'
+[3.778s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_world_launcher', 'pythonpath')
+[3.779s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/hook/pythonpath.ps1'
+[3.789s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/hook/pythonpath.dsv'
+[3.792s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/hook/pythonpath.sh'
+[3.795s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/bin'
+[3.797s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_world_launcher)
+[3.798s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/package.ps1'
+[3.799s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/package.dsv'
+[3.804s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/package.sh'
+[3.806s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/package.bash'
+[3.807s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/my_world_launcher/package.zsh'
+[3.808s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/will/metr4202_ws/src/Metr4202-Team21/install/my_world_launcher/share/colcon-core/packages/my_world_launcher)
+[3.816s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21' for CMake module files
+[3.817s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/will/metr4202_ws/src/Metr4202-Team21/aruco_detector_team21' returned '0': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/aruco_detector_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/install.log --single-version-externally-managed install_data
+[3.824s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21' for CMake config files
+[3.833s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib'
+[3.833s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/bin'
+[3.833s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/pkgconfig/aruco_detector_team21.pc'
+[3.833s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages'
+[3.833s] Level 1:colcon.colcon_core.shell:create_environment_hook('aruco_detector_team21', 'pythonpath')
+[3.834s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/hook/pythonpath.ps1'
+[3.834s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/hook/pythonpath.dsv'
+[3.835s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/hook/pythonpath.sh'
+[3.835s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/bin'
+[3.835s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(aruco_detector_team21)
+[3.836s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/package.ps1'
+[3.836s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/package.dsv'
+[3.837s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/package.sh'
+[3.837s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/package.bash'
+[3.838s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/aruco_detector_team21/package.zsh'
+[3.839s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/share/colcon-core/packages/aruco_detector_team21)
+[3.986s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21' for CMake module files
+[3.988s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/will/metr4202_ws/src/Metr4202-Team21/waypoint_commander_team21' returned '0': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/waypoint_commander_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/install.log --single-version-externally-managed install_data
+[3.991s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21' for CMake config files
+[3.998s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib'
+[3.998s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/bin'
+[3.999s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/pkgconfig/waypoint_commander_team21.pc'
+[3.999s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages'
+[3.999s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_commander_team21', 'pythonpath')
+[4.000s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/hook/pythonpath.ps1'
+[4.000s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/hook/pythonpath.dsv'
+[4.002s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/hook/pythonpath.sh'
+[4.006s] Level 1:colcon.colcon_core.environment:checking '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/bin'
+[4.006s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(waypoint_commander_team21)
+[4.006s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/package.ps1'
+[4.009s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/package.dsv'
+[4.010s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/package.sh'
+[4.010s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/package.bash'
+[4.011s] INFO:colcon.colcon_core.shell:Creating package script '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21/package.zsh'
+[4.012s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/colcon-core/packages/waypoint_commander_team21)
+[4.012s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[4.015s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[4.016s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[4.016s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[4.110s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[4.110s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[4.110s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[4.110s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[4.111s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[4.111s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[4.111s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/will/metr4202_ws/src/Metr4202-Team21/install/local_setup.ps1'
+[4.113s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/will/metr4202_ws/src/Metr4202-Team21/install/_local_setup_util_ps1.py'
+[4.115s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/will/metr4202_ws/src/Metr4202-Team21/install/setup.ps1'
+[4.119s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/will/metr4202_ws/src/Metr4202-Team21/install/local_setup.sh'
+[4.120s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/will/metr4202_ws/src/Metr4202-Team21/install/_local_setup_util_sh.py'
+[4.121s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/will/metr4202_ws/src/Metr4202-Team21/install/setup.sh'
+[4.124s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/will/metr4202_ws/src/Metr4202-Team21/install/local_setup.bash'
+[4.124s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/will/metr4202_ws/src/Metr4202-Team21/install/setup.bash'
+[4.129s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/will/metr4202_ws/src/Metr4202-Team21/install/local_setup.zsh'
+[4.129s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/will/metr4202_ws/src/Metr4202-Team21/install/setup.zsh'

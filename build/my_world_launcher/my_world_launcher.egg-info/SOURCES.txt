@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../build/my_world_launcher/my_world_launcher.egg-info/PKG-INFO
+../build/my_world_launcher/my_world_launcher.egg-info/SOURCES.txt
+../build/my_world_launcher/my_world_launcher.egg-info/dependency_links.txt
+../build/my_world_launcher/my_world_launcher.egg-info/entry_points.txt
+../build/my_world_launcher/my_world_launcher.egg-info/requires.txt
+../build/my_world_launcher/my_world_launcher.egg-info/top_level.txt
+../build/my_world_launcher/my_world_launcher.egg-info/zip-safe
+launch/test_world.launch.py
+my_world_launcher/__init__.py
+resource/my_world_launcher
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
+worlds/testworld1.world

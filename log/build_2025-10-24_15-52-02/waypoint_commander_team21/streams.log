@@ -1,0 +1,29 @@
+[2.374s] Invoking command in '/home/will/metr4202_ws/src/Metr4202-Team21/waypoint_commander_team21': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/waypoint_commander_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/install.log --single-version-externally-managed install_data
+[2.920s] running egg_info
+[2.925s] writing ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/PKG-INFO
+[2.926s] writing dependency_links to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/dependency_links.txt
+[2.931s] writing entry points to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/entry_points.txt
+[2.931s] writing requirements to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/requires.txt
+[2.931s] writing top-level names to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/top_level.txt
+[2.941s] reading manifest file '../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/SOURCES.txt'
+[2.947s] writing manifest file '../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/SOURCES.txt'
+[2.948s] running build
+[2.948s] running build_py
+[2.951s] creating /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_team21
+[2.951s] copying waypoint_commander_team21/waypoint_cycler_team21.py -> /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_team21
+[2.954s] copying waypoint_commander_team21/__init__.py -> /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_team21
+[2.956s] running install
+[2.958s] running install_lib
+[2.962s] creating /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21
+[2.965s] copying /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_team21/waypoint_cycler_team21.py -> /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21
+[2.965s] copying /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_team21/__init__.py -> /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21
+[2.966s] byte-compiling /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21/waypoint_cycler_team21.py to waypoint_cycler_team21.cpython-310.pyc
+[2.981s] byte-compiling /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21/__init__.py to __init__.cpython-310.pyc
+[2.981s] running install_data
+[2.981s] running install_egg_info
+[2.990s] removing '/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21-0.0.0-py3.10.egg-info' (and everything under it)
+[2.993s] Copying ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info to /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21-0.0.0-py3.10.egg-info
+[2.998s] running install_scripts
+[3.046s] Installing waypoint_cycler_team21 script to /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/waypoint_commander_team21
+[3.047s] writing list of installed files to '/home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/install.log'
+[3.122s] Invoked command in '/home/will/metr4202_ws/src/Metr4202-Team21/waypoint_commander_team21' returned '0': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/waypoint_commander_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/install.log --single-version-externally-managed install_data

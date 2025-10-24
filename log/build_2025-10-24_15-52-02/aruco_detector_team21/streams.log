@@ -1,0 +1,24 @@
+[2.218s] Invoking command in '/home/will/metr4202_ws/src/Metr4202-Team21/aruco_detector_team21': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/aruco_detector_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/install.log --single-version-externally-managed install_data
+[2.804s] running egg_info
+[2.805s] writing ../build/aruco_detector_team21/aruco_detector_team21.egg-info/PKG-INFO
+[2.806s] writing dependency_links to ../build/aruco_detector_team21/aruco_detector_team21.egg-info/dependency_links.txt
+[2.807s] writing entry points to ../build/aruco_detector_team21/aruco_detector_team21.egg-info/entry_points.txt
+[2.807s] writing requirements to ../build/aruco_detector_team21/aruco_detector_team21.egg-info/requires.txt
+[2.808s] writing top-level names to ../build/aruco_detector_team21/aruco_detector_team21.egg-info/top_level.txt
+[2.811s] reading manifest file '../build/aruco_detector_team21/aruco_detector_team21.egg-info/SOURCES.txt'
+[2.813s] writing manifest file '../build/aruco_detector_team21/aruco_detector_team21.egg-info/SOURCES.txt'
+[2.813s] running build
+[2.813s] running build_py
+[2.816s] copying aruco_detector_team21/aruco_detector_team21.py -> /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/build/lib/aruco_detector_team21
+[2.817s] running install
+[2.817s] running install_lib
+[2.827s] copying /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/build/lib/aruco_detector_team21/aruco_detector_team21.py -> /home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages/aruco_detector_team21
+[2.827s] byte-compiling /home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages/aruco_detector_team21/aruco_detector_team21.py to aruco_detector_team21.cpython-310.pyc
+[2.827s] running install_data
+[2.827s] running install_egg_info
+[2.838s] removing '/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages/aruco_detector_team21-0.0.0-py3.10.egg-info' (and everything under it)
+[2.845s] Copying ../build/aruco_detector_team21/aruco_detector_team21.egg-info to /home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages/aruco_detector_team21-0.0.0-py3.10.egg-info
+[2.845s] running install_scripts
+[2.905s] Installing aruco_detector_team21 script to /home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/aruco_detector_team21
+[2.906s] writing list of installed files to '/home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/install.log'
+[2.995s] Invoked command in '/home/will/metr4202_ws/src/Metr4202-Team21/aruco_detector_team21' returned '0': PYTHONPATH=/home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/will/metr4202_ws/src/Metr4202-Team21/install/aruco_detector_team21/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/aruco_detector_team21 build --build-base /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/build install --record /home/will/metr4202_ws/src/Metr4202-Team21/build/aruco_detector_team21/install.log --single-version-externally-managed install_data

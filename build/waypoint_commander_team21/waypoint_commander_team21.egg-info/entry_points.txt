@@ -1,0 +1,3 @@
+[console_scripts]
+waypoint_cycler_team21 = waypoint_commander_team21.waypoint_cycler_team21:main
+

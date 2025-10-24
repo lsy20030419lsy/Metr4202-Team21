@@ -1,0 +1,35 @@
+running egg_info
+creating ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info
+writing ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/PKG-INFO
+writing dependency_links to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/dependency_links.txt
+writing entry points to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/entry_points.txt
+writing requirements to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/requires.txt
+writing top-level names to ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/top_level.txt
+writing manifest file '../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/SOURCES.txt'
+reading manifest file '../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/SOURCES.txt'
+writing manifest file '../build/waypoint_commander_team21/waypoint_commander_team21.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build
+creating /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib
+creating /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_term21
+copying waypoint_commander_term21/waypoint_cycler_Term21.py -> /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_term21
+copying waypoint_commander_term21/__init__.py -> /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_term21
+running install
+running install_lib
+creating /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_term21
+copying /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_term21/waypoint_cycler_Term21.py -> /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_term21
+copying /home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/build/lib/waypoint_commander_term21/__init__.py -> /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_term21
+byte-compiling /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_term21/waypoint_cycler_Term21.py to waypoint_cycler_Term21.cpython-310.pyc
+byte-compiling /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_term21/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/ament_index
+creating /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/ament_index/resource_index
+creating /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/ament_index/resource_index/packages
+copying resource/waypoint_commander_team21 -> /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/ament_index/resource_index/packages
+copying package.xml -> /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/share/waypoint_commander_team21
+running install_egg_info
+Copying ../build/waypoint_commander_team21/waypoint_commander_team21.egg-info to /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/python3.10/site-packages/waypoint_commander_team21-0.0.0-py3.10.egg-info
+running install_scripts
+Installing waypoint_cycler_team21 script to /home/will/metr4202_ws/src/Metr4202-Team21/install/waypoint_commander_team21/lib/waypoint_commander_team21
+writing list of installed files to '/home/will/metr4202_ws/src/Metr4202-Team21/build/waypoint_commander_team21/install.log'
