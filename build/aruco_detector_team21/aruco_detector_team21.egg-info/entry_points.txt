@@ -1,3 +1,0 @@
-[console_scripts]
-aruco_detector_team21 = aruco_detector_team21.aruco_detector_team21:main
-
