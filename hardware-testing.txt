@@ -1,16 +1,33 @@
-1st terminal:
-
-ssh ubuntu@192.168.8.37
-ros2 launch turtlebot3_bringup robot.launch.py
-
-
-2nd terminal:
-in bashrc(nano ~/.bashrc   source ~/.bashr)
+Check the bashrc
+nano ~/.bashrc
 export TURTLEBOT3_MODEL=waffle_pi
 export ROS_DOMAIN_ID={XX}
+source ~/.bashrc
 
+Connect robot
+1st terminal:
+ssh ubuntu@192.168.8.3x
+ros2 launch turtlebot3_bringup robot.launch.py
 
-
-2nd terminal:
-ros2 launch slam_toolbox online_async_launch.py
+To run the slam:
+new terminal:
 ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=False slam:=True
+
+Waypoint:
+new terminal:
+source install/setup.bash
+ros2 run waypoint_commander_team21 waypoint_cycler_team21
+
+Aruco:
+new terminal:
+ssh ubuntu@192.168.8.3x
+ros2 run v4l2_camera v4l2_camera_node
+
+
+host terminal:
+export ROS_DOMAIN_ID=36
+ros2 run rqt_image_view rqt_image_view
+
+
+source install/setup.bash 
+ros2 run aruco_detector_team21 aruco_detector_team21
