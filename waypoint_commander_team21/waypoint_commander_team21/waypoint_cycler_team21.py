@@ -24,16 +24,16 @@ class FrontierDetector(Node):
 
         # -------------------- Tunables --------------------
         # Cost threshold considered "safe" to stand on / pass through.
-        self.safe_cost_threshold = 30
+        self.safe_cost_threshold = 80
 
         # If we've been working on the same goal longer than this, we call it "stuck".
         self.stuck_seconds = 30.0
 
         # We won't revisit goals within this distance (meters).
-        self.visited_dist_thresh = 0.20
+        self.visited_dist_thresh = 0.3
 
         # Frontier cells must be below this cost and adjacent to unknown (-1).
-        self.frontier_free_ceiling = 70
+        self.frontier_free_ceiling = 130
 
         # When choosing a frontier, cluster the closest top ratio and take the
         # center of the largest cluster.
@@ -43,7 +43,7 @@ class FrontierDetector(Node):
         self.open_area_min_cells = 200
 
         # For escape: candidate cell must have at least this free radius around it (meters).
-        self.min_clear_radius_m = 0.4
+        self.min_clear_radius_m = 0.3
         # -------------------------------------------------
 
         # Subscriptions / publishers
@@ -154,12 +154,13 @@ class FrontierDetector(Node):
         return grid, cells
 
     def _has_unknown_neighbor(self, x, y, data, w, h):
-        """Quick 4-neighborhood unknown check."""
-        if y > 0   and data[(y - 1) * w + x] == -1: return True
-        if y < h-1 and data[(y + 1) * w + x] == -1: return True
-        if x > 0   and data[y * w + (x - 1)] == -1: return True
-        if x < w-1 and data[y * w + (x + 1)] == -1: return True
+        def unk(v): return (v == 255) or (v == -1)
+        if y > 0   and unk(data[(y - 1) * w + x]): return True
+        if y < h-1 and unk(data[(y + 1) * w + x]): return True
+        if x > 0   and unk(data[y * w + (x - 1)]): return True
+        if x < w-1 and unk(data[y * w + (x + 1)]): return True
         return False
+
 
     def locate_farthest_frontier(self, cells, ox, oy, res):
         """First move: head for the farthest frontier to carve out space quickly."""
