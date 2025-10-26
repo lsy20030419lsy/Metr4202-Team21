@@ -25,6 +25,20 @@ ros2 run waypoint_commander_team21 waypoint_cycler_team21
 ros2 run aruco_detector_team21 aruco_detector_team21
 
 8.*For real robot:
+export TURTLEBOT3_MODEL=waffle_pi
+export ROS_DOMAIN_ID={XX}
+or put in bashrc by (nano ~/.bashrc and source ~/.bashrc)
+
+9.Make sure router is connected to the device and open a new terminal to connect the robot by:
+ssh ubuntu@192.168.8.id
+ros2 launch turtlebot3_bringup robot.launch.py
+
+10.
+
+
+
+
+
 
 
 
