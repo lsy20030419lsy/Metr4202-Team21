@@ -11,60 +11,61 @@ import math
 
 class ArucoMapMarker(Node):
     """
-    一个集成的ROS 2节点，用于：
-    1. 从摄像头图像中检测ArUco二维码。
-    2. 计算其在全局`map`坐标系中的位置。
-    3. 当第一次检测到某个ID的二维码时，在终端打印其位置。
-    4. 在RViz中发布一个永久的、带ID标签的绿色方块作为可视化标记。
+    An integrated ROS 2 node for:
+    1. Detecting ArUco markers from a camera image.
+    2. Calculating their position in the global `map` coordinate frame.
+    3. Printing the position to the console upon the first detection of a specific ID.
+    4. Publishing a permanent visualization marker (a green cube with an ID label) in RViz.
     """
     def __init__(self):
         super().__init__('aruco_map_marker')
 
-        # --- 需要你根据实际情况修改的参数 ---
-        # 你的相机内参矩阵 (需要通过相机标定获得)
+        # --- Parameters to modify based on your setup ---
+        # Your camera's intrinsic matrix (obtained from calibration)
         self.camera_matrix = np.array([
             [600.0, 0.0, 320.0],
             [0.0, 600.0, 240.0],
             [0.0, 0.0, 1.0]
         ], dtype=np.float32)
-        # 你的相机畸变系数 (需要通过相机标定获得)
+        # Your camera's distortion coefficients (obtained from calibration)
         self.dist_coeffs = np.array([0.0, 0.0, 0.0, 0.0, 0.0], dtype=np.float32)
-        # 你在仿真或现实世界中使用的ArUco二维码的边长（单位：米）
+        # The side length of the ArUco marker you are using (in meters)
         self.marker_length_meters = 0.1
 
-        # --- 内部状态变量 ---
+        # --- Internal state variables ---
         self.robot_pose = None
         self.bridge = CvBridge()
-        self.detected_marker_ids = set() # 用一个集合来存储已发现的二维码ID，防止重复处理
+        # A set to store the IDs of detected markers to avoid reprocessing
+        self.detected_marker_ids = set() 
 
-        # --- ArUco检测器初始化 ---
+        # --- ArUco detector initialization ---
         self.aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_6X6_250)
         self.aruco_params = aruco.DetectorParameters_create()
 
-        # --- ROS 2 订阅者与发布者 ---
-        # 订阅里程计信息，获取机器人当前位姿
+        # --- ROS 2 Subscribers and Publishers ---
+        # Subscribe to odometry information to get the robot's current pose
         self.odom_subscriber = self.create_subscription(
             Odometry,
             '/odom',
             self.odom_callback,
             10)
-        # 订阅摄像头原始图像
+        # Subscribe to the raw camera image
         self.image_subscriber = self.create_subscription(
             Image,
-            '/camera/image_raw',  # <-- 确保这个话题名是正确的！
+            '/camera/image_raw',  # <-- Make sure this topic name is correct!
             self.image_callback,
             10)
-        # 发布标记到RViz
+        # Publisher for visualization markers to RViz
         self.marker_publisher = self.create_publisher(Marker, '/aruco_markers', 10)
 
-        self.get_logger().info('二维码地图标记节点已启动。')
+        self.get_logger().info('ArUco map marker node has started.')
 
     def odom_callback(self, msg):
-        """里程计回调函数，用于更新机器人的当前位姿。"""
+        """Callback function for odometry, used to update the robot's current pose."""
         pos = msg.pose.pose.position
         orient = msg.pose.pose.orientation
         
-        # 从四元数计算偏航角 (yaw)
+        # Calculate the yaw angle from the quaternion
         siny_cosp = 2 * (orient.w * orient.z + orient.x * orient.y)
         cosy_cosp = 1 - 2 * (orient.y * orient.y + orient.z * orient.z)
         yaw = math.atan2(siny_cosp, cosy_cosp)
@@ -72,47 +73,47 @@ class ArucoMapMarker(Node):
         self.robot_pose = {'x': pos.x, 'y': pos.y, 'theta': yaw}
 
     def image_callback(self, msg):
-        """图像回调函数，处理摄像头图像并检测二维码。"""
+        """Callback function for images, processes the camera feed and detects markers."""
         if self.robot_pose is None:
-            self.get_logger().warn("正在等待里程计(odom)数据...", throttle_duration_sec=5)
+            self.get_logger().warn("Waiting for odometry data...", throttle_duration_sec=5)
             return
 
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
         except Exception as e:
-            self.get_logger().error(f"图像转换失败: {e}")
+            self.get_logger().error(f"Image conversion failed: {e}")
             return
             
-        # 检测图像中的ArUco码
+        # Detect ArUco markers in the image
         corners, ids, _ = aruco.detectMarkers(cv_image, self.aruco_dict, parameters=self.aruco_params)
 
-        # 如果检测到了任何二维码
+        # If any markers are detected
         if ids is not None:
-            # 估算每个二维码的位姿（相对于相机）
+            # Estimate the pose of each marker (relative to the camera)
             rvecs, tvecs, _ = aruco.estimatePoseSingleMarkers(
                 corners, self.marker_length_meters, self.camera_matrix, self.dist_coeffs)
 
-            # 遍历所有检测到的二维码
+            # Iterate through all detected markers
             for i, marker_id_array in enumerate(ids):
                 marker_id = int(marker_id_array[0])
 
-                # 如果这个ID的二维码是第一次被发现
+                # If this marker ID is detected for the first time
                 if marker_id not in self.detected_marker_ids:
-                    # --- 坐标系变换 ---
-                    # 1. 获取二维码在相机坐标系下的位置 (tvec)
-                    #    - ROS标准相机坐标系: Z轴向前, X轴向右, Y轴向下
+                    # --- Coordinate Transformation ---
+                    # 1. Get the marker's position in the camera coordinate frame (tvec)
+                    #    - ROS standard camera coordinates: Z forward, X right, Y down
                     tvec = tvecs[i][0]
                     x_marker_in_cam = tvec[0]
-                    z_marker_in_cam = tvec[2] # 我们主要关心X(左右)和Z(前后)
+                    z_marker_in_cam = tvec[2] # We are mainly interested in X (left/right) and Z (forward/backward)
 
-                    # 2. 将相机坐标系下的位置转换到机器人坐标系下
-                    #    - 假设相机安装在机器人正前方
-                    #    - 相机的Z轴(向前)对应机器人的X轴(向前)
-                    #    - 相机的X轴(向右)对应机器人的-Y轴(向左)
+                    # 2. Transform the position from the camera frame to the robot's frame
+                    #    - Assuming the camera is mounted on the front of the robot
+                    #    - The camera's Z-axis (forward) corresponds to the robot's X-axis (forward)
+                    #    - The camera's X-axis (right) corresponds to the robot's -Y-axis (left)
                     x_marker_in_robot = z_marker_in_cam
                     y_marker_in_robot = -x_marker_in_cam
                     
-                    # 3. 将机器人坐标系下的位置转换到全局地图坐标系下
+                    # 3. Transform the position from the robot's frame to the global map frame
                     x_robot = self.robot_pose['x']
                     y_robot = self.robot_pose['y']
                     theta_robot = self.robot_pose['theta']
@@ -120,53 +121,53 @@ class ArucoMapMarker(Node):
                     x_marker_in_map = x_robot + x_marker_in_robot * math.cos(theta_robot) - y_marker_in_robot * math.sin(theta_robot)
                     y_marker_in_map = y_robot + x_marker_in_robot * math.sin(theta_robot) + y_marker_in_robot * math.cos(theta_robot)
                     
-                    # 记录这个ID，并发布标记
+                    # Record this ID and publish the marker
                     self.detected_marker_ids.add(marker_id)
-                    self.get_logger().info(f"--> 发现新二维码! ID: {marker_id}, 地图坐标: x={x_marker_in_map:.2f}, y={y_marker_in_map:.2f}")
+                    self.get_logger().info(f"--> New marker found! ID: {marker_id}, Map Coordinates: x={x_marker_in_map:.2f}, y={y_marker_in_map:.2f}")
                     
-                    # 在计算出的地图位置发布一个可视化的标记
+                    # Publish a visualization marker at the calculated map position
                     self.publish_marker(marker_id, x_marker_in_map, y_marker_in_map)
 
     def publish_marker(self, marker_id, x_pos, y_pos):
-        """为新发现的二维码创建一个绿点，并附上其ID作为文字标签。"""
+        """Creates a green point (cube) and a text label for a newly discovered marker."""
         
-        # --- 创建绿点 (方块) ---
+        # --- Create Green Point (Cube) ---
         point_marker = Marker()
-        point_marker.header.frame_id = "map"  # <-- 【关键修改】使用 'map' 坐标系
+        point_marker.header.frame_id = "map"  # <-- [CRITICAL CHANGE] Use the 'map' frame
         point_marker.header.stamp = self.get_clock().now().to_msg()
         point_marker.ns = "aruco_points"
         point_marker.id = marker_id
-        point_marker.type = Marker.CUBE # 使用方块，也可以用 SPHERE
+        point_marker.type = Marker.CUBE # Using a CUBE, can also be a SPHERE
         point_marker.action = Marker.ADD
         
         point_marker.pose.position.x = x_pos
         point_marker.pose.position.y = y_pos
-        point_marker.pose.position.z = 0.05 # 稍微抬高，避免与地面重叠
+        point_marker.pose.position.z = 0.05 # Slightly elevated to avoid overlapping with the ground
         point_marker.pose.orientation.w = 1.0
         
-        point_marker.scale.x = 0.1 # 点的大小
+        point_marker.scale.x = 0.1 # Size of the point
         point_marker.scale.y = 0.1
         point_marker.scale.z = 0.1
 
-        point_marker.color.g = 1.0 # 绿色
-        point_marker.color.a = 1.0 # 不透明
+        point_marker.color.g = 1.0 # Green color
+        point_marker.color.a = 1.0 # Opaque
         
-        point_marker.lifetime = rclpy.duration.Duration(seconds=0).to_msg() # 0秒代表永久存在
+        point_marker.lifetime = rclpy.duration.Duration(seconds=0).to_msg() # A lifetime of 0 means it exists forever
         
-        # --- 创建文字标签 ---
+        # --- Create Text Label ---
         text_marker = Marker()
-        text_marker.header.frame_id = "map" # <-- 【关键修改】同样使用 'map' 坐标系
+        text_marker.header.frame_id = "map" # <-- [CRITICAL CHANGE] Also use the 'map' frame
         text_marker.header.stamp = self.get_clock().now().to_msg()
         text_marker.ns = "aruco_labels"
-        text_marker.id = marker_id # ID可以和点一样
+        text_marker.id = marker_id # ID can be the same as the point's
         text_marker.type = Marker.TEXT_VIEW_FACING
         text_marker.action = Marker.ADD
 
         text_marker.pose.position.x = x_pos
         text_marker.pose.position.y = y_pos
-        text_marker.pose.position.z = 0.2 # 放在点的上方
+        text_marker.pose.position.z = 0.2 # Position it above the point
         
-        text_marker.scale.z = 0.15 # 字体大小
+        text_marker.scale.z = 0.15 # Font size
         
         text_marker.color.r = 1.0
         text_marker.color.g = 1.0
@@ -174,12 +175,12 @@ class ArucoMapMarker(Node):
         text_marker.color.a = 1.0
         text_marker.text = f"ID: {marker_id}"
 
-        text_marker.lifetime = rclpy.duration.Duration(seconds=0).to_msg() # 永久存在
+        text_marker.lifetime = rclpy.duration.Duration(seconds=0).to_msg() # Exists forever
 
-        # 发布两个标记
+        # Publish both markers
         self.marker_publisher.publish(point_marker)
         self.marker_publisher.publish(text_marker)
-        self.get_logger().info(f"    已为ID: {marker_id} 在地图上发布绿色标记。")
+        self.get_logger().info(f"   Published green marker on the map for ID: {marker_id}.")
 
 def main(args=None):
     rclpy.init(args=args)
