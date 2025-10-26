@@ -11,17 +11,17 @@ source install/setup.bash
 export TURTLEBOT3_MODEL=waffle_pi
 ros2 launch my_world_launcher test_world.launch.py
 
-4. Start slam and rviz (for simulation: use_sim_time:=True; for real robot: use_sim_time:=Fales):
+4. (Open a new terminal)Start slam and rviz (for simulation: use_sim_time:=True; for real robot: use_sim_time:=Fales):
 export TURTLEBOT3_MODEL=waffle_pi
 ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True slam:=True
 
 5.Re-source the workspace before running custom nodes:
 source install/setup.bash 
 
-6.Run Waypoint Commander
+6.(Open a new terminal) Run Waypoint Commander
 ros2 run waypoint_commander_team21 waypoint_cycler_team21
 
-7.Run AruCo detector:
+7. (Open a new terminal) Run AruCo detector:
 ros2 run aruco_detector_team21 aruco_detector_team21
 
 8.*For real robot:
