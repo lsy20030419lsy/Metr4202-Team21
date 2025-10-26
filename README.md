@@ -8,7 +8,7 @@ source install/setup.bash
 
 Open the test map made by our team (file name depends on the name on your labtop, in my world launcher/launch): 
 export TURTLEBOT3_MODEL=waffle_pi
-ros2 launch my_world_launcher testworld1.launch.py
+ros2 launch my_world_launcher test_world.launch.py
 
 Open slam and rviz (remember when you doing the simulation, make use_sim_time:=True, if you using real robot, make use_sim_time:=Fales):
 export TURTLEBOT3_MODEL=waffle_pi
